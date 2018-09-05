@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MAD9132_Examples</string>
+    <string name="message">This is a message</string>
+    <string name="first_name">First Name</string>
+</resources>
