@@ -17,30 +17,11 @@ class MainActivity : Activity() {
 
         val editText = findViewById<EditText>(R.id.firstView)
 
-        val prefs = getSharedPreferences("MyFile", Context.MODE_PRIVATE)
-
-
-        val previousString = prefs.getString("PREVIOUS_NAME", "New Name")
-        editText!!.setText(previousString)
-
 
         var button1 = findViewById(R.id.firstButton) as? Button
         button1?.setOnClickListener( View.OnClickListener {
 
-            Log.e("MainActivity", "Saved shared preferences")
 
-            var userInput = editText!!.getText().toString()
-
-            val editor = prefs.edit()
-            editor.putString("PREVIOUS_NAME", userInput)
-
-            editor.commit()
-
-            val newActivity = Intent( this, InformationScreen::class.java)
-
-            newActivity.putExtra("UserInput", userInput)
-
-            startActivityForResult( newActivity , 50)
 
 
         })
@@ -49,16 +30,6 @@ class MainActivity : Activity() {
         var button2 = findViewById(R.id.secondButton) as? Button
         button2?.setOnClickListener(View.OnClickListener {
 
-            var userInput = editText!!.getText().toString()
-
-            val editor = prefs.edit()
-            editor.putString("PREVIOUS_NAME", userInput)
-
-            editor.commit()
-
-            val newActivity = Intent( this, ListScreen::class.java)
-
-            startActivityForResult( newActivity , 296)
 
         })
     }
@@ -66,9 +37,6 @@ class MainActivity : Activity() {
     override fun onActivityResult(request:Int, result:Int, dat:Intent?)
     {
 
-        //request will always be 50
-        //result will always be 535, unless hit back button
-        Log.i("Result", "is " +result)
     }
 
 }
