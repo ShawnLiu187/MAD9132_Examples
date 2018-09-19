@@ -20,6 +20,11 @@ class MainActivity : Activity() {
 
         val editText = findViewById<EditText>(R.id.firstView)
 
+        val prefs = getSharedPreferences("SavedData", Context.MODE_PRIVATE)
+        val userString = prefs.getString("UserInput", "Default answer")
+
+        Log.e("In MainActivity", "string found is:" + userString)
+        editText.setText(userString)
 
         var button1 = findViewById(R.id.firstButton) as? Button
         button1?.setOnClickListener( View.OnClickListener {
@@ -27,9 +32,15 @@ class MainActivity : Activity() {
 
             val newActivity = Intent( this, InformationActivity::class.java);
             val typedString = editText.getText().toString()
+
+            val prefs = prefs.edit()
+            prefs.putString("UserInput", typedString)
+            prefs.putInt("Age", 10)
+
+            prefs.commit()//writes a file
+
             newActivity.putExtra("UserName", typedString)
             startActivityForResult(newActivity, 100)
-
         })
 
 
