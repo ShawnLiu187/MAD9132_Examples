@@ -17,7 +17,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".InformationScreen" />
-        <activity android:name=".ListScreen"></activity>
+        <activity android:name=".ListScreen" />
+        <activity android:name=".InformationActivity" />
+        <activity android:name=".ListActivity"></activity>
     </application>
 
 </manifest>
