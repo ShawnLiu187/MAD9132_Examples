@@ -1,12 +1,11 @@
 package com.example.etorunski.mad9132_examples
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 
 class MainActivity : Activity() {
 
@@ -24,11 +23,19 @@ class MainActivity : Activity() {
         })
 
 
+        val intent = Intent(this, MainActivity::class.java)
+
         var button2 = findViewById(R.id.secondButton) as? Button
 
 
         button2?.setOnClickListener(View.OnClickListener {
             editText?.setText("You clicked button 2")
+            val newActivity = Intent(Intent.ACTION_SEND)
+            newActivity.setType("text/plain")
+            newActivity.putExtra(Intent.EXTRA_EMAIL, arrayOf("email@algonquincollege.com", "OtherEmail@email.com"))
         })
+
+
+
     }
 }
