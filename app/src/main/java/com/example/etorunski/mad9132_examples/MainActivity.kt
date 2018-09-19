@@ -15,7 +15,7 @@ class MainActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val editText = findViewById(R.id.firstView) as? EditText
+        val editText = findViewById<EditText>(R.id.firstView)
 
         val prefs = getSharedPreferences("MyFile", Context.MODE_PRIVATE)
 
