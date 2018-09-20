@@ -13,7 +13,11 @@ class ListActivity : Activity() {
 
         var button = findViewById< Button >(R.id.doneButton)
         button.setOnClickListener({
+
+            //set the result to be a unique number:
             setResult(88)
+
+            //return to the previous activity:
             finish()
         })
     }
